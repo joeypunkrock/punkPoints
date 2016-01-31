@@ -1,12 +1,12 @@
 <?php
 /*
-Allows the user to both create new records and edit existing records
+Allows the user to create a new record
 */
 
 include 'inc/documentHead.php';
 include 'inc/config.php';
 
-// creates the new/edit record form
+// creates the new record form
 // since this form is used multiple times in this file, I have made it a function that is easily reusable
 function renderForm($name = '', $error = '', $id = '')
 { ?>
