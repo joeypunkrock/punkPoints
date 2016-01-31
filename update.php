@@ -61,34 +61,34 @@ $(function() {
 // make sure the 'id' value is valid
 if (is_numeric($_GET['id']) && $_GET['id'] > 0)
 {
-// get 'id' from URL
-$id = $_GET['id'];
+    // get 'id' from URL
+    $id = $_GET['id'];
 
-// get the record from the database
-if($stmt = $mysqli->prepare("SELECT * FROM points WHERE id=?"))
-{
-$stmt->bind_param("i", $id);
-$stmt->execute();
+    // get the record from the database
+    if($stmt = $mysqli->prepare("SELECT * FROM points WHERE id=?"))
+    {
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
 
-$stmt->bind_result($id, $name, $currPoints, $addPoints, $remPoints, $reason, $updateDate);
-$stmt->fetch();
+    $stmt->bind_result($id, $name, $currPoints, $addPoints, $remPoints, $reason, $updateDate);
+    $stmt->fetch();
 
-// show the form
-renderForm($name, $currPoints, $addPoints, $remPoints, $reason, $updateDate, NULL, $id);
+    // show the form
+    renderForm($name, $currPoints, $addPoints, $remPoints, $reason, $updateDate, NULL, $id);
 
 
-}
-// show an error if the query has an error
-else
-{
-echo "<p class='error'>Error: could not prepare SQL statement</p>";
-}
+    }
+    // show an error if the query has an error
+    else
+    {
+        echo "<p class='error'>Error: could not prepare SQL statement</p>";
+    }
 }
 // if the 'id' value is not valid, redirect the user back to the view.php page
 else
 {
-echo "<p class='error'>Error: id value not valid</p>";
-// header("Location: index.php");
+    echo "<p class='error'>Error: id value not valid</p>";
+    // header("Location: index.php");
 }
 
 

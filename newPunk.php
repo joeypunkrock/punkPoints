@@ -23,19 +23,30 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 . "</div>";
 } ?>
 
-<form action="" method="post">
+<form name="insertForm" action="" method="post">
 <?php if ($id != '') { ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
 <p>ID: <?php echo $id; ?></p>
 <?php } ?>
 	<input type="text" name="name" placeholder="Name">
-	<!-- <input type="submit" name="submit" value="Add"> -->
-	<p>Cannot add new punk yet...</p>
+	<input type="submit" name="submit" value="Add">
 </form>
 
 
 </body>
 </html>
+
+<script>
+$(function() {
+    $('form[name="insertForm"]').submit(function(e) {
+        var reason = $('form[name="insertForm"] input[name="name"]').val();
+        if ( reason == '') {
+            e.preventDefault();
+            window.alert("Enter a name, fool!")
+        }
+    });
+});
+</script>
 
 <?php }
 
@@ -50,37 +61,28 @@ if (isset($_POST['submit']))
 // get the form data
 $name = htmlentities($_POST['name'], ENT_QUOTES);
 
-// check that firstname and lastname are both not empty
-if ($name == '')
-{
-// if they are empty, show an error message and display the form
-$error = 'ERROR: Please fill in all required fields!';
-renderForm($name, $error);
-}
-else
-{
 // insert the new record into the database
-if ($stmt = $mysqli->prepare("INSERT points (name) VALUES (?, ?)"))
+if ($stmt = $mysqli->prepare("INSERT points (name) VALUES (?)"))
 {
-$stmt->bind_param("s", $name);
-$stmt->execute();
-$stmt->close();
+	$stmt->bind_param("s", $name);
+	$stmt->execute();
+	$stmt->close();
 }
 // show an error if the query has an error
 else
 {
-echo "ERROR: Could not prepare SQL statement.";
+	echo "ERROR: Could not prepare SQL statement.";
 }
 
 // redirec the user
 header("Location: index.php");
-}
+
 
 }
 // if the form hasn't been submitted yet, show the form
 else
 {
-renderForm();
+	renderForm();
 }
 
 
