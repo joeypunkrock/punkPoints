@@ -5,8 +5,6 @@ include 'inc/config.php';
 
 <title>Punk Points Dashboard</title>
 </head>
-<img class="gg" src="img/gg.png">
-<hr style="margin-top:-10px;">
 <h1 id="top">Punk Points</h1>
 <hr>
 
@@ -58,13 +56,11 @@ $mysqli->close();
 ?>
 
 <p style="color:#646464;font-size:14px;">Sponsored by <b>Buckfast</b>. Brewed by Monks, drunk by <b>Punks</b>!</p>
+<img class="gg" src="img/gg.png">
 </body>
 </html>
 
 <script type='text/javascript'>
-	window.onload = window.location.hash = 'top';
+	// window.onload = window.location.hash = 'top';
 </script>"
-
-
-<?php include 'inc/js.php';?>
 
