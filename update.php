@@ -26,17 +26,16 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 } ?>
 
 <p class="marginUp">For <?php echo $name; ?> / <?php echo $currPoints; ?></p><br>
-<form id="form" name="pointsForm" action="" method="post">
-<?php if ($id != '') { ?>
-<input type="hidden" name="id" value="<?php echo $id; ?>" />
+<form class="updateForm" id="form" name="pointsForm" action="" method="post">
+    <?php if ($id != '') { ?>
+    <input type="hidden" name="id" value="<?php echo $id; ?>" />
 
-<?php } ?>
+    <?php } ?>
 	<input type="number" name="addPoints" placeholder="Add Punk Points">
 	<input type="number" name="remPoints" placeholder="Remove Punk Points">
 	<input type="text" name="reason" placeholder="Reason">
 	<input type="submit" name="submit" value="Update Punk Points">
 </form>
-
 </div>
 
 <a id="backBut" href="index.php">Go Back</a>

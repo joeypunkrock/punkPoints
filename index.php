@@ -8,11 +8,32 @@ include 'inc/config.php';
 <h1 id="top">Punk Points</h1>
 <hr>
 
+<form class="sortSelector" name="sortSelector" action="" method="post">
+	<input type="submit" name="sortDate" value="Sort by latest">
+	<input type="submit" name="sortPoints" value="Sort by points">
+</form>
+
+
+
 <?php
 
-// get the records from the database
-if ($result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC"))
+if (isset($_POST['sortDate']))
 {
+	$result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC");
+	$currentSort = "Sorted by latest update";
+} 
+else if (isset($_POST['sortPoints']))
+{
+	$result = $mysqli->query("SELECT * FROM points ORDER BY currPoints DESC");
+	$currentSort = "Sorted by most Punk Points";
+}else
+{
+	$result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC");
+	$currentSort = "Sorted by latest update";
+}
+
+?><p class="fade small"><?php echo $currentSort; ?></p><hr><?php
+
 	// display records if there are records to display
 	if ($result->num_rows > 0)
 	{
@@ -42,12 +63,7 @@ if ($result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC"))
 	{
 		echo "No results to display!";
 	}
-}
-// show an error if there is an issue with the database query
-else
-{
-	echo "Error: " . $mysqli->error;
-}
+
 
 // close database connection
 $mysqli->close();
