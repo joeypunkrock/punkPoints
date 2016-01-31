@@ -53,8 +53,6 @@ $(function() {
 });
 </script>
 
-<?php include 'inc/js.php';?>
-
 <?php
 }
 
