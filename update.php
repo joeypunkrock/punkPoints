@@ -8,7 +8,7 @@ include 'inc/config.php';
 
 ?>
 
-<a href="index.php">Go Back</a>
+<a id="backBut" href="index.php">Go Back</a>
 
 <?php
 // creates the form
@@ -19,16 +19,19 @@ function renderForm($name = '', $currPoints = '', $addPoints = '', $remPoints = 
 <?php if ($id != '') { echo "Edit Punk Points"; } else { echo "New Punk"; } ?>
 </title>
 
+<div id="formHolder">
+
 <h2><?php if ($id != '') { echo "Edit Punk points"; } else { echo "New Punk"; } ?></h2>
 <?php if ($error != '') {
 echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 . "</div>";
 } ?>
 
-<form name="pointsForm" action="" method="post">
+<p class="marginUp">For <?php echo $name; ?> / <?php echo $currPoints; ?></p><br>
+<form id="form" name="pointsForm" action="" method="post">
 <?php if ($id != '') { ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
-<p>For <?php echo $name; ?> / <?php echo $currPoints; ?></p>
+
 <?php } ?>
 	<input type="number" name="addPoints" placeholder="Add Punk Points">
 	<input type="number" name="remPoints" placeholder="Remove Punk Points">
@@ -36,22 +39,9 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 	<input type="submit" name="submit" value="Update Punk Points">
 </form>
 
+</div>
 
-</body>
-</html>
-
-<script>
-$(function() {
-    $('form[name="pointsForm"]').submit(function(e) {
-        var reason = $('form[name="pointsForm"] input[name="reason"]').val();
-        if ( reason == '') {
-            e.preventDefault();
-            window.alert("Enter a reason, fool!")
-        }
-    });
-});
-</script>
-
+<?php include 'inc/js.php';?>
 
 <?php
 }
@@ -138,9 +128,9 @@ if (is_numeric($_GET['id']) && $_GET['id'] > 0)
 
         $stmt->close();
     }
-    else {
-        echo "<p class='error'>Error: could not prepare SQL statement for currPoints</p>";
-    }
+}
+else {
+    echo "<p class='error'>Error: could not prepare SQL statement for currPoints</p>";
 }
 
 //Now update currPoints
@@ -154,15 +144,39 @@ WHERE id=?"))
     $stmt->execute();
     $stmt->close();
 
+
 }
 else {
     echo "<p class='error'>ERROR: could not prepare SQL statement.</p>";
 }
 
-// redirect the user once the form is updated
-header("Location: index.php");
+// commence loading animation and redirect to index
+header('Refresh: 3;URL=index.php');
+echo "
+
+<div id='spinnerHolder' style='display:none'>
+    <p class='small'>Updating Punk Points for ";echo $name; echo"...</b></p>
+    <div class='spinner'>
+      <div class='double-bounce1'></div>
+      <div class='double-bounce2'></div>
+    </div>
+</div>
+
+<script type='text/javascript'>
+
+        $('#formHolder').show().fadeOut(500);
+        $('#backBut').show().fadeOut(500);
+        $('#spinnerHolder').hide().fadeIn(1000);
+        setTimeout(function(){
+            notifyUpdate();
+        },3000);
+        </script>"
+;
+
+die();
 }
 
 ?>
 
-<?php include 'inc/footer.php'; ?>
+</body>
+</html>
