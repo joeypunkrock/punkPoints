@@ -8,8 +8,6 @@ include 'inc/config.php';
 
 ?>
 
-<a id="backBut" href="index.php">Go Back</a>
-
 <?php
 // creates the form
 function renderForm($name = '', $currPoints = '', $addPoints = '', $remPoints = '', $reason = '', $updateDate = '', $error = '', $id = '')
@@ -40,6 +38,8 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 </form>
 
 </div>
+
+<a id="backBut" href="index.php">Go Back</a>
 
 <?php include 'inc/js.php';?>
 
