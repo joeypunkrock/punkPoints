@@ -103,6 +103,15 @@ if (isset($_POST['submit']))
 $id = $_POST['id'];
 $addPoints = htmlentities($_POST['addPoints'], ENT_QUOTES);
 $remPoints = htmlentities($_POST['remPoints'], ENT_QUOTES);
+
+// if addPoints or remPoints is larger than 5000 or -5000 then set to 5000 or -5000
+if ($addPoints>5000) {
+    $addPoints=5000;
+}
+if ($remPoints>5000) {
+    $remPoints=5000;
+}
+
 $reason = htmlentities($_POST['reason'], ENT_QUOTES);
 $updateDate = date("Y-m-d H:i:s");
 
