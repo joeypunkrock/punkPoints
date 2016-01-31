@@ -47,7 +47,7 @@ $(function() {
         var reason = $('form[name="pointsForm"] input[name="reason"]').val();
         if ( reason == '') {
             e.preventDefault();
-            window.alert("Enter a reason, fool!")
+            window.alert('G.G. Says: "Enter a reason, fool!"')
         }
     });
 });

@@ -42,7 +42,7 @@ $(function() {
         var reason = $('form[name="insertForm"] input[name="name"]').val();
         if ( reason == '') {
             e.preventDefault();
-            window.alert("Enter a name, fool!")
+            window.alert('G.G. Says: "Enter a name, fool!"')
         }
     });
 });
