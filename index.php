@@ -30,7 +30,7 @@ if ($result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC"))
 			echo $row->remPoints . "</span></p><p class='fade noMargin'>";
 			echo $row->reason . "</p><p class='fade small date'>";
 			$newdate = date( 'F j, Y, g:i a', strtotime($row->updateDate));
-			echo $newdate . "</p><br>";
+			echo $newdate . "</p>";
 			echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a><br><br>";
 			echo "<hr>";
 
