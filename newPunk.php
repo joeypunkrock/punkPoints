@@ -12,12 +12,12 @@ function renderForm($name = '', $error = '', $id = '')
 { ?>
 
 <title>
-<?php if ($id != '') { echo "Edit Punk"; } else { echo "New Punk"; } ?>
+<?php echo "New Punk"; ?>
 </title>
 
 <a href="index.php">Go Back</a>
 
-<h1><?php if ($id != '') { echo "Edit Punk"; } else { echo "New Punk"; } ?></h1>
+<h1><?php echo "New Punk"; ?></h1>
 <?php if ($error != '') {
 echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 . "</div>";

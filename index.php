@@ -1,3 +1,5 @@
+<!-- todo - (Fix page refresh notification) -->
+
 <?php 
 include 'inc/documentHead.php';
 include 'inc/config.php';
@@ -43,14 +45,20 @@ else if (isset($_POST['sortPoints']))
 
 			// set up a row for each record
 			// echo $row->id . "<br><br>";
-			echo "<h2 class='noMarginDown'>" . $row->name . "  ";
-			echo $row->currPoints . "</h2><p class='fade small noMargin'><span class='green'>+ ";
+			echo "<h2 class='marginDown'>" . $row->name . "  ";
+			echo $row->currPoints . "</h2>";
+			if ($row->nickname!=''){
+				echo "<p class='nickname'>( " . $row->nickname . " )</p><hr class='small-hr'><p class='fade small noMargin'><span class='green'>+ ";
+			}else {
+				echo "<p class='fade small noMargin'><span class='green'>+ ";
+			}
 			echo $row->addPoints . "</span> / <span class='red'>- ";
 			echo $row->remPoints . "</span></p><p class='fade noMargin'>";
 			echo $row->reason . "</p><p class='fade small date'>";
 			$newdate = date( 'F j, Y, g:i a', strtotime($row->updateDate));
 			echo $newdate . "</p>";
-			echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a><br><br>";
+			echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a>";
+			echo "<a class='editButton' href='updateNick.php?id=" . $row->id . "'>Edit Nickname</a><br><br>";
 			echo "<hr>";
 
 		}
