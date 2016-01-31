@@ -43,7 +43,7 @@ else if (isset($_POST['sortPoints']))
 
 			// set up a row for each record
 			// echo $row->id . "<br><br>";
-			echo "<h2 class='noMarginDown'>" . $row->name . " / ";
+			echo "<h2 class='noMarginDown'>" . $row->name . "  ";
 			echo $row->currPoints . "</h2><p class='fade small noMargin'><span class='green'>+ ";
 			echo $row->addPoints . "</span> / <span class='red'>- ";
 			echo $row->remPoints . "</span></p><p class='fade noMargin'>";

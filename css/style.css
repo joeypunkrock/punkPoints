@@ -101,6 +101,7 @@ form.updateForm input[type="submit"] {
     color: #CACACA;
     font-size: 14px;
     text-decoration: none;
+    font-family: 'Indie Flower', cursive;
 }
 #spinnerHolder {
     position: absolute;

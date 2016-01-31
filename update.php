@@ -25,7 +25,7 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 . "</div>";
 } ?>
 
-<p class="marginUp">For <?php echo $name; ?> / <?php echo $currPoints; ?></p><br>
+<p class="marginUp">For <?php echo $name; ?>  <?php echo $currPoints; ?></p><br>
 <form class="updateForm" id="form" name="pointsForm" action="" method="post">
     <?php if ($id != '') { ?>
     <input type="hidden" name="id" value="<?php echo $id; ?>" />
