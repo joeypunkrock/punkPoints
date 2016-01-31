@@ -70,6 +70,9 @@ hr {
     font-size: 14px;
     text-decoration: none;
 }
+form.sortSelector {
+    margin-top: 25px;
+}
 form.sortSelector input {
     height: 25px;
     padding: 0px 10px 0px 10px;
@@ -90,12 +93,14 @@ form.updateForm input {
     margin: 5px;
 }
 form.updateForm input[type="submit"] {
-    width: 74.5%;
+    width:74.5%;
     height: 35px;
-    background: #484848;
-    border: solid 1px #fff;
-    color: #fff;
-    font-size: 20px;
+    padding: 2px 20px 2px 20px;
+    background: #242424;
+    border: solid 1px #303030;
+    color: #CACACA;
+    font-size: 14px;
+    text-decoration: none;
 }
 #spinnerHolder {
     position: absolute;
