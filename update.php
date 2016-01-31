@@ -56,7 +56,7 @@ $(function() {
 <?php
 }
 
-/*GET THE FORM*/
+/* GET THE FORM */
 
 // make sure the 'id' value is valid
 if (is_numeric($_GET['id']) && $_GET['id'] > 0)
@@ -92,7 +92,7 @@ else
 }
 
 
-/*EDIT RECORD*/
+/* EDIT RECORD */
 
 if (!isset($_GET['id']) || !isset($_POST['submit']))
 {
@@ -109,16 +109,16 @@ if (!is_numeric($_POST['id']))
 if (isset($_POST['submit']))
 {
 
-date_default_timezone_set("Europe/London");
-
-$script_tz = date_default_timezone_get();
-
 // get variables from the URL/form
 $id = $_POST['id'];
 $addPoints = htmlentities($_POST['addPoints'], ENT_QUOTES);
 $remPoints = htmlentities($_POST['remPoints'], ENT_QUOTES);
 $reason = htmlentities($_POST['reason'], ENT_QUOTES);
 $updateDate = date("Y-m-d H:i:s");
+
+// $updateDate = '31/05/2001 12:22:56';
+// $updateDate = DateTime::createFromFormat('d/m/Y H:i:s', $updateDate);
+// echo $updateDate->format('Y-m-d H:i:s');
 
 //Check what the current points are first
 // make sure the 'id' value is valid also
@@ -128,41 +128,39 @@ if (is_numeric($_GET['id']) && $_GET['id'] > 0)
     $id = $_GET['id'];
 
     // get the record from the database
-    if($stmt = $mysqli->prepare("SELECT * FROM points WHERE id=?"))
+    if($stmt = $mysqli->prepare("SELECT currPoints FROM points WHERE id=?"))
     {
         $stmt->bind_param("i", $id);
         $stmt->execute();
 
-        $stmt->bind_result($id, $name, $currPoints, $addPoints, $remPoints, $reason, $updateDate);
+        $stmt->bind_result($id, $currPoints);
         $stmt->fetch();
-
-        // show the form
-        renderForm($name, $currPoints, $addPoints, $remPoints, $reason, $updateDate, NULL, $id);
 
         $stmt->close();
     }
-    else
-        echo "<p class='error'>Error: could not prepare SQL statement</p>";
+    else {
+        echo "<p class='error'>Error: could not prepare SQL statement for currPoints</p>";
+    }
 }
 
 //Now update currPoints
-$currPoints += $addPoints-$remPoints;
-
+ $currPoints += $addPoints-$remPoints;
 
 // if everything is fine, update the record in the database
 if ($stmt = $mysqli->prepare("UPDATE points SET currPoints = ? , addPoints = ?, remPoints = ?, reason = ?, updateDate = ?
 WHERE id=?"))
 {
-    $stmt->bind_param("iiisdi", $currPoints, $addPoints, $remPoints, $reason, $updateDate, $id);
+    $stmt->bind_param("iiissi", $currPoints, $addPoints, $remPoints, $reason, $updateDate, $id);
     $stmt->execute();
     $stmt->close();
+
 }
-else
+else {
     echo "<p class='error'>ERROR: could not prepare SQL statement.</p>";
+}
 
 // redirect the user once the form is updated
 header("Location: index.php");
-
 }
 
 ?>

@@ -21,14 +21,16 @@ if ($result = $mysqli->query("SELECT * FROM points ORDER BY currPoints DESC"))
 
 		while ($row = $result->fetch_object())
 		{
+
 			// set up a row for each record
 			// echo $row->id . "<br><br>";
 			echo "<h2 class='noMarginDown'>" . $row->name . " / ";
 			echo $row->currPoints . "</h2><p class='fade small noMargin'>+ ";
 			echo $row->addPoints . " / - ";
 			echo $row->remPoints . "</p><p class='fade noMargin'>";
-			echo $row->reason . "</p><p class='fade small'>";
-			echo /*$row->updateDate .*/ "</p><br>";
+			echo $row->reason . "</p><p class='fade small date'>";
+			$newdate = date( 'F j, Y, g:i a', strtotime($row->updateDate));
+			echo $newdate . "</p><br>";
 			echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a><br><br>";
 			echo "<hr>";
 
