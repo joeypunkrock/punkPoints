@@ -41,6 +41,18 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 
 <a id="backBut" href="index.php">Go Back</a>
 
+<script>
+$(function() {
+    $('form[name="pointsForm"]').submit(function(e) {
+        var reason = $('form[name="pointsForm"] input[name="reason"]').val();
+        if ( reason == '') {
+            e.preventDefault();
+            window.alert("Enter a reason, fool!")
+        }
+    });
+});
+</script>
+
 <?php include 'inc/js.php';?>
 
 <?php

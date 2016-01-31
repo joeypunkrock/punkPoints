@@ -1,13 +1,5 @@
 <script>
-$(function() {
-    $('form[name="pointsForm"]').submit(function(e) {
-        var reason = $('form[name="pointsForm"] input[name="reason"]').val();
-        if ( reason == '') {
-            e.preventDefault();
-            window.alert("Enter a reason, fool!")
-        }
-    });
-});
+
 
 function notifyUpdate() {
 //   // Let's check if the browser supports notifications
