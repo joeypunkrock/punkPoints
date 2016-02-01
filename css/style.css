@@ -34,10 +34,13 @@ hr.row {
     border-right: 0;
     border-left: 0;
     width: 100%;
-    margin: -4px;
+    margin: -0.5px;
+}
+table,tbody,tr,td,th {
+    display: block;
 }
 table:nth-child(odd) {
-    background-color: #030303;
+    background-color: #090909;
 }
 .nickname {
     margin: 0;

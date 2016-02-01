@@ -42,7 +42,7 @@ else if (isset($_POST['sortPoints']))
 	$currentSort = "Sorted by latest update";
 }
 
-?><p class="fade tiny noMargin"><?php echo $currentSort; ?></p><hr style="margin-bottom:0;"></div><?php
+?><p class="fade tiny noMargin" style="margin-top:5px;"><?php echo $currentSort; ?></p><hr style="margin-bottom:0;"></div><?php
 
 	// display records if there are records to display
 	if ($result->num_rows > 0)
