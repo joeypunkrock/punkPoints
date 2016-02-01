@@ -5,9 +5,17 @@ include 'inc/documentHead.php';
 include 'inc/config.php';
 ?>
 
+<script>
+  $(document).ready(function(){
+    $("#sticker").sticky({topSpacing:-10});
+  });
+</script>
+
 <title>Punk Points Dashboard</title>
 </head>
 <h1 id="top">Punk Points</h1>
+
+<div id="sticker">
 <hr>
 
 <form class="sortSelector" name="sortSelector" action="" method="post">
@@ -34,7 +42,7 @@ else if (isset($_POST['sortPoints']))
 	$currentSort = "Sorted by latest update";
 }
 
-?><p class="fade small"><?php echo $currentSort; ?></p><hr><?php
+?><p class="fade tiny noMargin"><?php echo $currentSort; ?></p><hr style="margin-bottom:0;"></div><?php
 
 	// display records if there are records to display
 	if ($result->num_rows > 0)
@@ -42,7 +50,7 @@ else if (isset($_POST['sortPoints']))
 
 		while ($row = $result->fetch_object())
 		{
-
+			echo "<table><tr><td>";
 			// set up a row for each record
 			// echo $row->id . "<br><br>";
 			echo "<h2 class='marginDown'>" . $row->name . "  ";
@@ -59,7 +67,9 @@ else if (isset($_POST['sortPoints']))
 			echo $newdate . "</p>";
 			echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a>";
 			echo "<a class='editButton' href='updateNick.php?id=" . $row->id . "'>Edit Nickname</a><br><br>";
-			echo "<hr>";
+			echo "<hr class='row'>";
+
+			echo "</td></tr></table>";
 
 		}
 

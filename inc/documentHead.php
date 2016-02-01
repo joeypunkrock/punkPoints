@@ -6,5 +6,6 @@
 <link rel="stylesheet" href="css/style.css" />
 <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.sticky.js"></script>
 <html>
 <body>
