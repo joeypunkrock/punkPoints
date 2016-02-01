@@ -44,6 +44,9 @@ $( document ).ready(function() {
 
 <?php
 
+$result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC");
+$currentSort = "Sorted by latest update";
+
 if (isset($_POST['sortDate']))
 {
 	$result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC");
@@ -53,10 +56,6 @@ else if (isset($_POST['sortPoints']))
 {
 	$result = $mysqli->query("SELECT * FROM points ORDER BY currPoints DESC");
 	$currentSort = "Sorted by most Punk Points";
-}else
-{
-	$result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC");
-	$currentSort = "Sorted by latest update";
 }
 
 ?><p class="fade tiny noMargin" style="margin-top:10px;"><?php echo $currentSort; ?></p><hr style="margin-bottom:0;"></div><?php

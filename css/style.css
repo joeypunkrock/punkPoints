@@ -41,7 +41,7 @@ hr.row {
 table,tbody,tr,td,th {
     display: block;
 }
-table:nth-child(odd) {
+table:nth-child(even) {
     background-color: #090909;
 }
 .nickname {
