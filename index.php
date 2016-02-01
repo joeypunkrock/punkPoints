@@ -72,18 +72,16 @@ else if (isset($_POST['sortPoints']))
 			echo "<h2 class='marginDown'>" . $row->name . "  ";
 			echo $row->currPoints . "</h2>";
 			if ($row->nickname!=''){
-				echo "<p class='nickname'>( " . $row->nickname . " )</p><hr class='small-hr'><p class='fade small noMargin'><span class='green'>+ ";
-			}else {
-				echo "<p class='fade small noMargin'><span class='green'>+ ";
+				echo "<p class='nickname'>( " . $row->nickname . " )</p><hr class='small-hr'>";
 			}
-			echo $row->addPoints . "</span> / <span class='red'>- ";
-			echo $row->remPoints . "</span></p><p class='fade noMargin'>";
-			echo $row->reason . "</p><p class='fade small date'>";
+			echo "<p class='fade small noMargin'><span class='green'>+ " . $row->addPoints . "</span> / ";
+			echo "<span class='red'>- " . $row->remPoints . "</span></p>";
+			echo "<p class='fade noMargin'>" . $row->reason . "</p>";
 			$newdate = date( 'F j, Y, g:i a', strtotime($row->updateDate));
-			echo $newdate . "</p>";
+			echo "<p class='fade small date'>" .  $newdate . "</p>";
 			echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a>";
-			echo "<a class='editButton' href='updateNick.php?id=" . $row->id . "'>Edit Nickname</a><br><br>";
-			echo "<hr class='row'>";
+			echo "<a class='editButton' href='updateNick.php?id=" . $row->id . "'>Edit Nickname</a>";
+			echo "<br><br><hr class='row'>";
 
 			echo "</td></tr></table>";
 
