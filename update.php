@@ -175,11 +175,10 @@ echo "
 </div>
 
 <script type='text/javascript'>
-
-        $('#formHolder').show().fadeOut(500);
-        $('#backBut').show().fadeOut(500);
-        $('#spinnerHolder').hide().fadeIn(1000);
-        </script>"
+    $('#formHolder').show().fadeOut( 500 );
+    $('#backBut').show().fadeOut( 500 );
+    $('#spinnerHolder').hide().fadeIn( 1000 );
+</script>"
 ;
 
 die();

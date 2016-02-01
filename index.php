@@ -6,13 +6,30 @@ include 'inc/config.php';
 ?>
 
 <script>
-  $(document).ready(function(){
-    $("#sticker").sticky({topSpacing:-10});
-  });
+$( document ).ready(function() {
+	$('#spinnerHolder').show().delay( 1000 ).fadeOut( 300 );
+	$('#contentHolder').hide().delay( 1250 ).fadeIn( 700 );
+	setTimeout(
+  		function() 
+  		{
+    		$("#sticker").sticky({topSpacing:-10});
+     	}, 1260);
+});
 </script>
 
 <title>Punk Points Dashboard</title>
 </head>
+
+<div id='spinnerHolder'>
+    <p class='small'>Loading Punks...</b></p>
+    <div class='spinner'>
+      <div class='double-bounce1'></div>
+      <div class='double-bounce2'></div>
+    </div>
+</div>
+
+<div id="contentHolder" style="display:none;">
+
 <h1 id="top">Punk Points</h1>
 
 <div id="sticker">
@@ -91,6 +108,9 @@ $mysqli->close();
 
 <p style="color:#646464;font-size:14px;">Sponsored by <b>Buckfast</b>. Brewed by Monks, drunk by <b>Punks</b>!</p>
 <img class="gg" src="img/gg.png">
+
+</div> <!--/contentHolder-->
+
 </body>
 </html>
 
