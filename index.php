@@ -82,7 +82,6 @@ else if (isset($_POST['sortPoints']))
 			echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a>";
 			echo "<a class='editButton' href='updateNick.php?id=" . $row->id . "'>Edit Nickname</a>";
 			echo "<br><br><hr class='row'>";
-
 			echo "</td></tr></table>";
 
 		}
@@ -93,13 +92,11 @@ else if (isset($_POST['sortPoints']))
 
 	else
 	{
-		echo "No results to display!";
+		echo "<p>No results to display!</p>";
 	}
-
 
 // close database connection
 $mysqli->close();
-
 
 ?>
 
@@ -110,8 +107,3 @@ $mysqli->close();
 
 </body>
 </html>
-
-<script type='text/javascript'>
-	// window.onload = window.location.hash = 'top';
-</script>"
-
