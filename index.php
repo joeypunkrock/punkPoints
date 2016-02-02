@@ -76,11 +76,11 @@ else if (isset($_POST['sortPoints']))
       // echo $row->id . "<br><br>";
       echo "<h2 class='marginDown'>" . $row->name . "  ";
       echo $row->currPoints . "</h2>";
-      if ($row->nickname!=''){
-        echo "<p class='nickname'>( " . $row->nickname . " )</p><hr class='small-hr'><p class='fade small noMargin'><span class='green'>+ ";
-      }else {
+      // if ($row->nickname!=''){
+      //   echo "<p class='nickname'>( " . $row->nickname . " )</p><hr class='small-hr'><p class='fade small noMargin'><span class='green'>+ ";
+      // }else {
         echo "<p class='fade small noMargin'><span class='green'>+ ";
-      }
+      // }
       echo $row->addPoints . "</span> / <span class='red'>- ";
       echo $row->remPoints . "</span></p><p class='fade noMargin'>";
       echo $row->reason . "</p><p class='fade small date'>";
