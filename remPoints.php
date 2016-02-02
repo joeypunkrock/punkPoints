@@ -111,11 +111,8 @@ $id = $_POST['id'];
 $remPoints = htmlentities($_POST['remPoints'], ENT_QUOTES);
 
 // if addPoints or remPoints is larger than 5000 or -5000 then set to 5000 or -5000
-if ($addPoints>5000) {
-    $addPoints=5000;
-}
-if ($remPoints>5000) {
-    $remPoints=5000;
+if ($remPoints>1000) {
+    $remPoints=1000;
 }
 
 $reason = htmlentities($_POST['reason'], ENT_QUOTES);
