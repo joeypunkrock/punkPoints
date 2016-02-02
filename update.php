@@ -75,7 +75,6 @@ if (is_numeric($_GET['id']) && $_GET['id'] > 0)
     // show the form
     renderForm($name, $nickname, $currPoints, $addPoints, $remPoints, $reason, $updateDate, NULL, $id);
 
-
     }
     // show an error if the query has an error
     else

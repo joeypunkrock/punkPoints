@@ -44,6 +44,9 @@ table,tbody,tr,td,th {
 table:nth-child(even) {
     background-color: #090909;
 }
+table:nth-child(odd) {
+    background-color: #000;
+}
 .nickname {
     margin: 0;
     margin-top: -10px;
@@ -88,18 +91,19 @@ table:nth-child(even) {
     margin-bottom: 5px;
 }
 #sticker {
-    background-color: #070707;
+    background-color: #000;
 }
 .editButton {
     height: 35px;
-    padding: 2px 10px 2px 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 4px 8px 4px 8px;
+    margin-left: 5px;
+    margin-right: 5px;
     background: #242424;
     border: solid 1px #303030;
     color: #CACACA;
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
+    font-family: arial;
 }
 form.sortSelector {
     margin-top: 5px;
@@ -132,7 +136,6 @@ form.updateForm input[type="submit"] {
     color: #CACACA;
     font-size: 14px;
     text-decoration: none;
-    font-family: 'Indie Flower', cursive;
 }
 #spinnerHolder {
     position: absolute;
