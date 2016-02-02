@@ -21,7 +21,7 @@ $( document ).ready(function() {
 </head>
 
 <div id='spinnerHolder'>
-    <p class='small'>Loading Punk List...</b></p>
+    <p class='small'>Loading Punk Ranks...</b></p>
     <div class='spinner'>
       <div class='double-bounce1'></div>
       <div class='double-bounce2'></div>
@@ -30,10 +30,13 @@ $( document ).ready(function() {
 
 <div id="contentHolder" style="display:none;">
 
-<h1 id="top">Punk List</h1>
+<h1 id="top">Punk Ranks</h1>
 
 <div id="sticker">
-<hr>
+	<hr>
+	<a class="aInput" href="index.php">Back To List View</a>
+	<hr style="margin-bottom:0;">
+</div>
 
 <?php
 

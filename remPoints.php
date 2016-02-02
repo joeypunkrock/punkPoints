@@ -14,12 +14,12 @@ function renderForm($name = '', $nickname = '', $currPoints = '', $addPoints = '
 { ?>
 
 <title>
-<?php if ($id != '') { echo "Edit Punk Points"; } ?>
+<?php if ($id != '') { echo "Remove Punk Points"; } ?>
 </title>
 
 <div id="formHolder">
 
-<h2><?php if ($id != '') { echo "Edit Punk points"; } ?></h2>
+<h2><?php if ($id != '') { echo "Remove Punk points"; } ?></h2>
 <?php if ($error != '') {
 echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 . "</div>";
@@ -31,10 +31,9 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
     <input type="hidden" name="id" value="<?php echo $id; ?>" />
 
     <?php } ?>
-	<input type="number" name="addPoints" placeholder="Add Punk Points">
-	<input type="number" name="remPoints" placeholder="Remove Punk Points">
+	<input type="number" name="remPoints" placeholder="Amount">
 	<input type="text" name="reason" placeholder="Reason">
-	<input type="submit" name="submit" value="Update Punk Points">
+	<input type="submit" name="submit" value="Remove Punk Points">
 </form>
 </div>
 
@@ -109,7 +108,6 @@ if (isset($_POST['submit']))
 
 // get variables from the URL/form
 $id = $_POST['id'];
-$addPoints = htmlentities($_POST['addPoints'], ENT_QUOTES);
 $remPoints = htmlentities($_POST['remPoints'], ENT_QUOTES);
 
 // if addPoints or remPoints is larger than 5000 or -5000 then set to 5000 or -5000
@@ -147,7 +145,8 @@ else {
 }
 
 //Now update currPoints
- $currPoints += $addPoints-$remPoints;
+ $currPoints += -$remPoints;
+ $addPoints = 0;
 
 // if everything is fine, update the record in the database
 if ($stmt = $mysqli->prepare("UPDATE points SET currPoints = ? , addPoints = ?, remPoints = ?, reason = ?, updateDate = ?
@@ -166,7 +165,7 @@ header('Refresh: 3;URL=index.php');
 echo "
 
 <div id='spinnerHolder' style='display:none'>
-    <p class='small'>Updating Punk Points for ";echo $name; echo"...</b></p>
+    <p class='small'>Removing Punk Points for ";echo $name; echo"...</b></p>
     <div class='spinner'>
       <div class='double-bounce1'></div>
       <div class='double-bounce2'></div>

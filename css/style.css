@@ -38,6 +38,18 @@ hr.row {
     width: 100%;
     margin: -0.5px;
 }
+.editButton {
+    height: 35px;
+    padding: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #151515;
+    border: solid 1px #303030;
+    color: #CACACA;
+    font-size: 12px;
+    text-decoration: none;
+    font-family: arial;
+}
 table,tbody,tr,td,th {
     display: block;
 }
@@ -52,6 +64,7 @@ table:nth-child(odd) {
     margin-top: -10px;
     color: #808080;
     font-size: 16px;
+    text-decoration: none;
 }
 .error {
     font-family: initial;
@@ -93,18 +106,6 @@ table:nth-child(odd) {
 #sticker {
     background-color: #000;
 }
-.editButton {
-    height: 35px;
-    padding: 4px 8px 4px 8px;
-    margin-left: 5px;
-    margin-right: 5px;
-    background: #242424;
-    border: solid 1px #303030;
-    color: #CACACA;
-    font-size: 12px;
-    text-decoration: none;
-    font-family: arial;
-}
 form.sortSelector {
     margin-top: 5px;
 }
@@ -136,6 +137,16 @@ form.updateForm input[type="submit"] {
     color: #CACACA;
     font-size: 14px;
     text-decoration: none;
+}
+.aInput {
+    height: 25px;
+    padding: 4px 10px 4px 10px;
+    background: rgb(28, 41, 66);
+    border: solid 1px #303030;
+    color: #D3D3D3;
+    font-size: 13px;
+    text-decoration: none;
+    font-family: arial;
 }
 #spinnerHolder {
     position: absolute;

@@ -7,8 +7,8 @@ include 'inc/config.php';
 
 <script>
 $( document ).ready(function() {
-  $('#spinnerHolder').show().delay( 1000 ).fadeOut( 300 );
-  $('#contentHolder').hide().delay( 1250 ).fadeIn( 700 );
+  $('#spinnerHolder').show().delay( 500 ).fadeOut( 200 );
+  $('#contentHolder').hide().delay( 650 ).fadeIn( 500 );
   setTimeout(
       function() 
       {
@@ -21,7 +21,6 @@ $( document ).ready(function() {
 </head>
 
 <div id='spinnerHolder'>
-    <p class='small'>Loading Punks...</b></p>
     <div class='spinner'>
       <div class='double-bounce1'></div>
       <div class='double-bounce2'></div>
@@ -30,20 +29,9 @@ $( document ).ready(function() {
 
 <div id="contentHolder" style="display:none;">
 
-<h1 id="top">Punk Points</h1>
-
-<div id="sticker">
-<hr>
-
-<form class="sortSelector" name="sortSelector" action="" method="post">
-  <input type="submit" name="sortDate" value="Sort by latest">
-  <input type="submit" name="sortPoints" value="Sort by points">
-</form>
-
-
+<h1 class="noMargin">Punk Points</h1>
 
 <?php
-
 if (isset($_POST['sortDate']))
 {
   $result = $mysqli->query("SELECT * FROM points ORDER BY updateDate DESC");
@@ -59,7 +47,23 @@ else if (isset($_POST['sortPoints']))
   $currentSort = "Sorted by latest update";
 }
 
-?><p class="fade tiny noMargin" style="margin-top:10px;"><?php echo $currentSort; ?></p><hr style="margin-bottom:0;"></div><?php
+?><p class="fade tiny noMargin"><?php echo $currentSort; ?></p><?php
+?>
+
+<div id="sticker">
+  <hr>
+
+  <form class="sortSelector" name="sortSelector" action="" method="post">
+    <input type="submit" name="sortDate" value="Sort by latest">
+    <input type="submit" name="sortPoints" value="Sort by points">
+    <a class="aInput" href="ranks.php">Ranks</a>
+  </form>
+
+  <hr style="margin-bottom:0;">
+
+</div>
+
+<?php
 
   // display records if there are records to display
   if ($result->num_rows > 0)
@@ -82,8 +86,9 @@ else if (isset($_POST['sortPoints']))
       echo $row->reason . "</p><p class='fade small date'>";
       $newdate = date( 'F j, Y, g:i a', strtotime($row->updateDate));
       echo $newdate . "</p>";
-      echo "<a class='editButton' href='update.php?id=" . $row->id . "'>Edit Punk Points</a>";
-      echo "<a class='editButton' href='updateNick.php?id=" . $row->id . "'>Edit Nickname</a><br><br>";
+      echo "<a class='editButton' href='addPoints.php?id=" . $row->id . "'><b>Add</b> Punk Points</a>";
+      echo "<a class='editButton' href='remPoints.php?id=" . $row->id . "'><b>Remove</b> Punk Points</a><br><br>";
+      // echo "<a class='editButton' href='updateNick.php?id=" . $row->id . "'>Edit Nickname</a><br><br>";
       echo "<hr class='row'>";
 
       echo "</td></tr></table>";
@@ -118,3 +123,11 @@ $mysqli->close();
   // window.onload = window.location.hash = 'top';
 </script>"
 
+<style>
+  table:nth-child(odd) {
+    background-color: #090909!important;
+  }
+  table:nth-child(even) {
+      background-color: #000!important;
+  }
+</style>
