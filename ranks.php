@@ -7,8 +7,8 @@ include 'inc/config.php';
 
 <script>
 $( document ).ready(function() {
-	$('#spinnerHolder').show().delay( 1000 ).fadeOut( 300 );
-	$('#contentHolder').hide().delay( 1250 ).fadeIn( 700 );
+  $('#spinnerHolder').show().delay( 500 ).fadeOut( 200 );
+  $('#contentHolder').hide().delay( 650 ).fadeIn( 500 );
 	setTimeout(
   		function() 
   		{
@@ -21,7 +21,6 @@ $( document ).ready(function() {
 </head>
 
 <div id='spinnerHolder'>
-    <p class='small'>Loading Punk Ranks...</b></p>
     <div class='spinner'>
       <div class='double-bounce1'></div>
       <div class='double-bounce2'></div>
