@@ -17,6 +17,6 @@
       function() 
       {
         $(".vidHolder").hide();
-      }, 5800);
+      }, 6000);
   });
 </script>
