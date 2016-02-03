@@ -15,7 +15,7 @@ function renderForm($name = '', $error = '', $id = '')
 <?php echo "New Punk"; ?>
 </title>
 
-<a href="index.php">Go Back</a>
+<a class="editButton" href="index.php">Go Back</a>
 
 <h1><?php echo "New Punk"; ?></h1>
 <?php if ($error != '') {

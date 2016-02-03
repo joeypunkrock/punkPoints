@@ -37,7 +37,7 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 </form>
 </div>
 
-<a id="backBut" href="index.php">Go Back</a>
+<a id="backBut" class="editButton" href="index.php">Go Back</a>
 
 <script>
 $(function() {
