@@ -72,7 +72,9 @@ table:nth-child(odd) {
 .gg {
     width: 100%;
     max-width: 400px;
-    padding-top:10px;
+    padding-top: 10px;
+    position: absolute;
+    left: 0;
 }
 .fade {
     color: #808080;
@@ -192,4 +194,24 @@ form.updateForm input[type="submit"] {
   }
 }
 
+.vidHolder {
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    top: 10px;
+    z-index: 1;
+    display: none;
+}
 
+.vid {
+    width: 100%;
+    position: relative;
+    left: -50%;
+}
+
+#vidClose {
+    position: relative;
+    left: -51.8%;
+    top: -10px;
+    width: 100%;
+}

@@ -3,6 +3,7 @@
 <?php 
 include 'inc/documentHead.php';
 include 'inc/config.php';
+include 'inc/functions.php';
 ?>
 
 <script>
@@ -19,6 +20,8 @@ $( document ).ready(function() {
 
 <title>Punk List</title>
 </head>
+
+<?php tyrone(); ?>
 
 <div id='spinnerHolder'>
     <div class='spinner'>
@@ -68,7 +71,7 @@ $result = $mysqli->query("SELECT * FROM points ORDER BY currPoints DESC");
 
 		}
 
-		echo "<a href='newPunk.php'>Add New</a>";
+    echo "<br><a href='newPunk.php' class='editButton'>Add New Punk</a>";
 
 	}
 
@@ -82,11 +85,5 @@ $mysqli->close();
 
 ?>
 
-<p style="color:#646464;font-size:14px;">Sponsored by <b>Buckfast</b>. Brewed by Monks, drunk by <b>Punks</b>!</p>
-<img class="gg" src="img/gg.png">
-
-</div> <!--/contentHolder-->
-
-</body>
-</html>
+<?php include 'inc/footer.php'; ?>
 

@@ -3,6 +3,7 @@
 <?php 
 include 'inc/documentHead.php';
 include 'inc/config.php';
+include 'inc/functions.php';
 ?>
 
 <script>
@@ -15,10 +16,13 @@ $( document ).ready(function() {
         $("#sticker").sticky({topSpacing:-10});
       }, 1260);
 });
+
 </script>
 
 <title>Punk Points Dashboard</title>
 </head>
+
+<?php tyrone(); ?>
 
 <div id='spinnerHolder'>
     <div class='spinner'>
@@ -95,7 +99,7 @@ else if (isset($_POST['sortPoints']))
 
     }
 
-    echo "<a href='newPunk.php'>Add New</a>";
+    echo "<br><a href='newPunk.php' class='editButton'>Add New Punk</a>";
 
   }
 
@@ -111,17 +115,7 @@ $mysqli->close();
 
 ?>
 
-<p style="color:#646464;font-size:14px;">Sponsored by <b>Buckfast</b>. Brewed by Monks, drunk by <b>Punks</b>!</p>
-<img class="gg" src="img/gg.png">
-
-</div> <!--/contentHolder-->
-
-</body>
-</html>
-
-<script type='text/javascript'>
-  // window.onload = window.location.hash = 'top';
-</script>"
+<?php include 'inc/footer.php'; ?>
 
 <style>
   table:nth-child(odd) {
@@ -131,3 +125,5 @@ $mysqli->close();
       background-color: #000!important;
   }
 </style>
+
+
