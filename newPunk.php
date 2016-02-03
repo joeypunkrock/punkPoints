@@ -15,8 +15,6 @@ function renderForm($name = '', $error = '', $id = '')
 <?php echo "New Punk"; ?>
 </title>
 
-<a class="editButton" href="index.php">Go Back</a>
-
 <h1><?php echo "New Punk"; ?></h1>
 <?php if ($error != '') {
 echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
@@ -32,6 +30,7 @@ echo "<div style='padding:4px; border:1px solid red; color:red'>" . $error
 	<input type="submit" name="submit" value="Add">
 </form>
 
+<a class="editButton" href="index.php">Go Back</a>
 
 </body>
 </html>
